@@ -68,3 +68,16 @@ class Company {
 }
 
 console.log(company.calculateTotalPayroll()); 
+// Task 5: Implementing Promotions
+class Company {
+    // ... (previous code)
+
+    promoteToManager(employee, teamSize) {
+        const manager = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize);
+        this.employees = this.employees.filter(emp => emp.id !== employee.id);
+        this.employees.push(manager);
+    }
+}
+
+company.promoteToManager(emp1, 3);
+company.listEmployees();
